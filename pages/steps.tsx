@@ -6,24 +6,25 @@ import Banner from "../public/images/menu/healthLink-banner.png";
 import step1 from "../public/images/stepsImg/step1.png";
 import step2 from "../public/images/stepsImg/step2.png";
 import step3 from "../public/images/stepsImg/step3.png";
-const imgStep = [
-  {
-    name: "step1",
-    src: step1,
-    topic: "1.xxxxxxxxxxxxxxx",
-  },
-  {
-    name: "step2",
-    src: step2,
-    topic: "2.xxxxxxxxxxxxxxx",
-  },
-  {
-    name: "step3",
-    src: step3,
-    topic: "3.xxxxxxxxxxxxxxx",
-  },
-];
+
 function steps() {
+  const imgStep = [
+    {
+      name: "step1",
+      src: step1,
+      topic: "1.xxxxxxxxxxxxxx",
+    },
+    {
+      name: "step2",
+      src: step2,
+      topic: "2.xxxxxxxxxxxxxx",
+    },
+    {
+      name: "step3",
+      src: step3,
+      topic: "3.xxxxxxxxxxxxxx",
+    },
+  ];
   return (
     <>
       <div className="flex gap-3 items-center mb-3 mt-3">
