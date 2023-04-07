@@ -2,13 +2,13 @@ import React from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 /* img */
 import Image from "next/image";
-import Banner from "../public/images/menu/healthLink-banner.png";
+
 import step1 from "../public/images/stepsImg/step1.png";
 import step2 from "../public/images/stepsImg/step2.png";
 import step3 from "../public/images/stepsImg/step3.png";
 
 function steps() {
-  const imgStep = [
+/*   const imgStep = [
     {
       name: "step1",
       src: step1,
@@ -24,7 +24,7 @@ function steps() {
       src: step3,
       topic: "3.xxxxxxxxxxxxxx",
     },
-  ];
+  ]; */
   return (
     <>
       <div className="flex gap-3 items-center mb-3 mt-3">
@@ -115,7 +115,7 @@ function steps() {
       </div>
 
       {/* step */}
-      <div className="w-full grid lg:grid-cols-3 sm:grid-cols-2 gap-10 xs:grid-cols-1  ">
+      {/*       <div className="w-full grid lg:grid-cols-3 sm:grid-cols-2 gap-10 xs:grid-cols-1  ">
         {imgStep.map((item) => {
           return (
             <div className="w-full">
@@ -126,13 +126,26 @@ function steps() {
             </div>
           );
         })}
-
-        {/*      <div className="">
-          <Image src={step1} alt="step1" width={320} height={200} />
+      </div> */}
+      <div className="w-full grid lg:grid-cols-3 sm:grid-cols-2 gap-10 xs:grid-cols-1  ">
+        <div className="w-full">
+          <Image src={step1} className="w-full" alt="step1" />
+          <div className="text-base text-center mt-2">
+            <p>1xxxxxxxxx</p>
+          </div>
         </div>
-        <div className="">
-          <Image src={step1} alt="step1"  width={320} height={200}/>
-        </div> */}
+        <div className="w-full">
+          <Image src={step2} className="w-full" alt="step2" />
+          <div className="text-base text-center mt-2">
+            <p>2xxxxxxxxx</p>
+          </div>
+        </div>
+        <div className="w-full">
+          <Image src={step3} className="w-full" alt="step3" />
+          <div className="text-base text-center mt-2">
+            <p>3xxxxxxxxx</p>
+          </div>
+        </div>
       </div>
     </>
   );
