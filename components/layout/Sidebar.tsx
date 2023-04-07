@@ -5,6 +5,7 @@ import Image from "next/image";
 import { defaultNavItems } from "./defaultNavitems";
 import { useOnClickOutside } from "usehooks-ts";
 import Logo from "../../public/images/menu/logo.png";
+import { useRouter } from "next/router";
 // define a NavItem prop
 export type NavItem = {
   label: string;
@@ -17,7 +18,10 @@ type Props = {
   navItems?: NavItem[];
   setOpen(open: boolean): void;
 };
+
 const Sidebar = ({ open, navItems = defaultNavItems, setOpen }: Props) => {
+  const router = useRouter();
+  /* console.log(router.pathname); */
   const ref = useRef<HTMLDivElement>(null);
   useOnClickOutside(ref, (e) => {
     setOpen(false);
@@ -45,11 +49,18 @@ const Sidebar = ({ open, navItems = defaultNavItems, setOpen }: Props) => {
         <ul className="py-2 flex flex-col gap-2">
           {navItems.map((item, index) => {
             return (
-              <Link key={index} href={item.href}>
+              <Link
+                key={index}
+                href={item.href}
+                className={`cursor-pointer ${
+                  router.pathname === item.href
+                    ? "bg-gradient-to-r from-gra-s to-gra-e text-white rounded-md"
+                    : "text-doh-text-gray hover:bg-gradient-to-r rounded-md from-gra-s to-gra-e hover:text-white"
+                }`}
+              >
                 <li
+                  id={item.href}
                   className={classNames({
-                    "text-doh-text-gray hover:bg-gradient-to-r from-gra-s to-gra-e hover:text-white":
-                      true, //colors
                     "flex gap-4 items-center ": true, //layout
                     "transition-colors duration-300": true, //animation
                     "rounded-md p-3": true, //self style
