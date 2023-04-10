@@ -119,7 +119,7 @@ function steps() {
       <div className="w-full grid lg:grid-cols-3 sm:grid-cols-2 gap-10 xs:grid-cols-1  ">
         {imgStep.map((item, key) => {
           return (
-            <div className="w-full" id={String(key)}>
+            <div className="w-full" key={String(key)}>
               <Image src={item.src} className="w-full" alt={item.name} />
               <div className="text-base text-center mt-2">
                 <p>{item.topic}</p>
