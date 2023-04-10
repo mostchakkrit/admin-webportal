@@ -8,7 +8,7 @@ import step2 from "../public/images/stepsImg/step2.png";
 import step3 from "../public/images/stepsImg/step3.png";
 
 function steps() {
-/*   const imgStep = [
+  const imgStep = [
     {
       name: "step1",
       src: step1,
@@ -24,7 +24,7 @@ function steps() {
       src: step3,
       topic: "3.xxxxxxxxxxxxxx",
     },
-  ]; */
+  ];
   return (
     <>
       <div className="flex gap-3 items-center mb-3 mt-3">
@@ -115,10 +115,11 @@ function steps() {
       </div>
 
       {/* step */}
-      {/*       <div className="w-full grid lg:grid-cols-3 sm:grid-cols-2 gap-10 xs:grid-cols-1  ">
-        {imgStep.map((item) => {
+
+      <div className="w-full grid lg:grid-cols-3 sm:grid-cols-2 gap-10 xs:grid-cols-1  ">
+        {imgStep.map((item, key) => {
           return (
-            <div className="w-full">
+            <div className="w-full" id={String(key)}>
               <Image src={item.src} className="w-full" alt={item.name} />
               <div className="text-base text-center mt-2">
                 <p>{item.topic}</p>
@@ -126,7 +127,8 @@ function steps() {
             </div>
           );
         })}
-      </div> */}
+      </div>
+      {/* 
       <div className="w-full grid lg:grid-cols-3 sm:grid-cols-2 gap-10 xs:grid-cols-1  ">
         <div className="w-full">
           <Image src={step1} className="w-full" alt="step1" />
@@ -146,7 +148,7 @@ function steps() {
             <p>3xxxxxxxxx</p>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
