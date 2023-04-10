@@ -59,7 +59,7 @@ export default function Login() {
             </form>
           </div>
         </div>
-        <div className="xs:hidden md:block flex w-1/2 justify-center bg-[url('/images/login/girl-practicing-yoga.png')]">
+        <div className="xs:hidden md:block flex w-1/2 justify-center bg-login-img">
           {/* <Image src={banner} alt="banner" /> */}
         </div>
       </div>

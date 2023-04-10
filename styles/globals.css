@@ -7,4 +7,8 @@
     /* @apply bg-gray-100; */
     font-family: "Noto Sans Thai", sans-serif;
   }
+/*   .two-bg {
+    background-image: linear-gradient(to right, #49CED8, #59DEBB),
+      url("/images/stepsImg/bg-banner.png");
+  } */
 }

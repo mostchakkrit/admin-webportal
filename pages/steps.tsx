@@ -28,16 +28,17 @@ function steps() {
   return (
     <>
       <div className="flex gap-3 items-center mb-3 mt-3">
-        <h1 className="text-3xl">การใช้งาน Health Link</h1>
+        <h1 className="text-2xl font-bold">การใช้งาน Health Link</h1>
         <h1 className="text-base">ของแพทย์</h1>
       </div>
       {/* <div>
         <Image src={Banner} alt="Banner" />
       </div> */}
-      <div className="containerrounded-md bg-gradient-to-r from-gra-s to-gra-e h-64 flex items-center rounded-md">
-        <div className="lg:ml-32 md:ml-10 xs:ml-5">
+      <div className="containerrounded-md bg-steps-banner bg-right bg-no-repeat h-64 flex items-center relative rounded-md">
+
+        <div className="lg:ml-32 md:ml-10 xs:ml-5 z-10">
           <div className="text-white mb-4">
-            <h1 className="text-3xl">การใช้งาน Health Link</h1>
+            <h1 className="text-2xl font-bold">การใช้งาน Health Link</h1>
             <p className="text-base">ของแพทย์</p>
           </div>
           <button className="rounded-full  w-44 h-10 bg-white hover:scale-105 hover:duration-200">
@@ -48,7 +49,7 @@ function steps() {
       {/* nav */}
       <div className="w-full grid sm:grid-cols-2 xs:grid-cols-1 my-4">
         <div className="flex justify-start items-center">
-          <h1 className="text-2xl">ขั้นตอนต่างๆ</h1>
+          <h1 className="text-xl font-bold">ขั้นตอนต่างๆ</h1>
         </div>
         <div className="flex sm:justify-end xs:justify-center xs:mt-1  items-center">
           <nav
@@ -128,27 +129,6 @@ function steps() {
           );
         })}
       </div>
-      {/* 
-      <div className="w-full grid lg:grid-cols-3 sm:grid-cols-2 gap-10 xs:grid-cols-1  ">
-        <div className="w-full">
-          <Image src={step1} className="w-full" alt="step1" />
-          <div className="text-base text-center mt-2">
-            <p>1xxxxxxxxx</p>
-          </div>
-        </div>
-        <div className="w-full">
-          <Image src={step2} className="w-full" alt="step2" />
-          <div className="text-base text-center mt-2">
-            <p>2xxxxxxxxx</p>
-          </div>
-        </div>
-        <div className="w-full">
-          <Image src={step3} className="w-full" alt="step3" />
-          <div className="text-base text-center mt-2">
-            <p>3xxxxxxxxx</p>
-          </div>
-        </div>
-      </div> */}
     </>
   );
 }

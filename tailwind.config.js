@@ -37,6 +37,10 @@ module.exports = {
         "gra-e": "#59DEBB",
         "doh-text-gray": "#B8C0C8",
       },
+      backgroundImage: {
+        "login-img": "url('/images/login/girl-practicing-yoga.png')",
+        "steps-banner": "url('/images/stepsImg/bg-banner.png'),linear-gradient(to right, #49CED8, #59DEBB)",
+      },
       /*   gridTemplateRows: {
         header: "64px auto", //for the navbar layout
       }, */
