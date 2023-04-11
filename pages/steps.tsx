@@ -6,6 +6,8 @@ import Image from "next/image";
 import step1 from "../public/images/stepsImg/step1.png";
 import step2 from "../public/images/stepsImg/step2.png";
 import step3 from "../public/images/stepsImg/step3.png";
+import Link from "next/link";
+import Head from "next/head";
 
 function steps() {
   const imgStep = [
@@ -27,6 +29,9 @@ function steps() {
   ];
   return (
     <>
+      <Head>
+        <title>ขั้นตอนการเข้าใช้งานระบบ</title>
+      </Head>
       <div className="flex gap-3 items-center mb-3 mt-3">
         <h1 className="text-2xl font-bold">การใช้งาน Health Link</h1>
         <h1 className="text-base">ของแพทย์</h1>
@@ -35,15 +40,16 @@ function steps() {
         <Image src={Banner} alt="Banner" />
       </div> */}
       <div className="containerrounded-md bg-steps-banner bg-right bg-no-repeat h-64 flex items-center relative rounded-md">
-
         <div className="lg:ml-32 md:ml-10 xs:ml-5 z-10">
           <div className="text-white mb-4">
             <h1 className="text-2xl font-bold">การใช้งาน Health Link</h1>
             <p className="text-base">ของแพทย์</p>
           </div>
-          <button className="rounded-full  w-44 h-10 bg-white hover:scale-105 hover:duration-200">
-            อ่านเพิ่มเติม
-          </button>
+          <Link href="/steps/health-link">
+            <button className="rounded-full  w-44 h-10 bg-white hover:scale-105 hover:duration-200">
+              อ่านเพิ่มเติม
+            </button>
+          </Link>
         </div>
       </div>
       {/* nav */}

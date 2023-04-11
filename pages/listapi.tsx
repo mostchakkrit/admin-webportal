@@ -2,10 +2,14 @@ import React from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 /* img */
 import Image from "next/image";
+import Head from "next/head";
 
 function listapi() {
   return (
     <>
+      <Head>
+        <title>รายการ API ที่ให้บริการ</title>
+      </Head>
       <div className="flex gap-3 items-center mb-3 mt-3">
         <h1 className="text-2xl font-bold">รายการ API ที่ให้บริการ</h1>
         <h1 className="text-base">ของแพทย์</h1>
@@ -13,7 +17,7 @@ function listapi() {
       {/* <div>
         <Image src={Banner} alt="Banner" />
       </div> */}
-      <div className="containerrounded-md bg-gradient-to-r  from-gra-s to-gra-e h-auto grid grid-cols-3 items-center relative rounded-md xs:py-2 md:text-left xs:text-center">
+      <div className="container rounded-md bg-gradient-to-r  from-gra-s to-gra-e h-auto grid grid-cols-3 items-center relative xs:py-2 md:text-left xs:text-center">
         <div className="lg:ml-22 md:ml-10 xs:ml-5 z-10 md:col-span-1 xs:col-span-3">
           <div className="text-white mb-4">
             <h1 className="text-3xl">กรุณาเข้าสู่ระบบก่อนการใช้งาน</h1>
@@ -115,7 +119,7 @@ function listapi() {
         </div>
       </div>
       {/* ประเภท */}
-      <div className="w-full  my-4">
+      <div className="w-full my-4">
         <div className="flex justify-between flex-wrap">
           <div className="flex gap-3">
             <h1 className="text-base">ประเภท</h1>
@@ -310,8 +314,8 @@ function listapi() {
               </td>
             </tr>
             {/*end loop */}
-                      {/* loop */}
-                      <tr>
+            {/* loop */}
+            <tr>
               <td className="text-center shadow-md p-2">
                 <div className="flex flex-warp justify-center">
                   <p className="bg-[#FDAA5E]  text-white py-1 px-2 rounded-md text-sm">
