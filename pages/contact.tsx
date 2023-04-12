@@ -146,7 +146,7 @@ const contactData = [
     ],
   },
 ];
-function contact() {
+function Contact() {
   return (
     <>
       <Head>
@@ -282,4 +282,4 @@ function contact() {
   );
 }
 
-export default contact;
+export default Contact;

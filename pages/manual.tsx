@@ -2,7 +2,7 @@ import Head from "next/head";
 import React from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 
-function manual() {
+function Manual() {
   const { data: session } = useSession();
   /*   if (session) {
     return (
@@ -56,4 +56,4 @@ function manual() {
     </>
   );
 }
-export default manual;
+export default Manual;

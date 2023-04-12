@@ -5,7 +5,7 @@ import Image from "next/image";
 import Head from "next/head";
 import { useSession, signIn, signOut } from "next-auth/react";
 
-function listapi() {
+function Listapi() {
   const { data: session } = useSession();
   return (
     <>
@@ -347,4 +347,4 @@ function listapi() {
   );
 }
 
-export default listapi;
+export default Listapi;

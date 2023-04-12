@@ -9,7 +9,7 @@ import step3 from "../public/images/stepsImg/step3.png";
 import Link from "next/link";
 import Head from "next/head";
 
-function steps() {
+function Steps() {
   const imgStep = [
     {
       name: "step1",
@@ -139,4 +139,4 @@ function steps() {
   );
 }
 
-export default steps;
+export default Steps;
