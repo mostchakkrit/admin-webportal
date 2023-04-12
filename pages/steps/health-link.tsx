@@ -4,6 +4,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";
+import { AiFillLeftCircle, AiFillRightCircle } from "react-icons/ai";
 
 function healthLink() {
   return (
@@ -40,11 +41,11 @@ function healthLink() {
         </div>
         {/* box 2 */}
         <div className="w-full">
-          <div className="flex flex-warp justify-between gap2">
+          <div className="flex flex-warp justify-between items-center gap2">
             <div>1. หน้าจอจะแสดงข้อมูล Overview</div>
-            <div>
-              {"<"}
-              {">"}
+            <div className="flex gap-4 mx-2">
+              <AiFillLeftCircle className="w-7 h-auto text-[#273D4B] cursor-pointer hover:scale-105 duration-150" />
+              <AiFillRightCircle className="w-7 h-auto text-[#273D4B] cursor-pointer hover:scale-105 duration-150" />
             </div>
           </div>
           <div className="flex flex-wrap mt-5 break-all">
