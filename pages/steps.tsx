@@ -32,14 +32,14 @@ function steps() {
       <Head>
         <title>ขั้นตอนการเข้าใช้งานระบบ</title>
       </Head>
-      <div className="flex gap-3 items-center mb-3 mt-3">
+      <div className="flex gap-3 items-center my-3">
         <h1 className="text-2xl font-bold">การใช้งาน Health Link</h1>
         <h1 className="text-base">ของแพทย์</h1>
       </div>
       {/* <div>
         <Image src={Banner} alt="Banner" />
       </div> */}
-      <div className="containerrounded-md bg-steps-banner bg-right bg-no-repeat h-64 flex items-center relative rounded-md">
+      <div className="bg-steps-banner bg-right bg-no-repeat h-64 flex items-center relative rounded-md">
         <div className="lg:ml-32 md:ml-10 xs:ml-5 z-10">
           <div className="text-white mb-4">
             <h1 className="text-2xl font-bold">การใช้งาน Health Link</h1>

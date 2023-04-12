@@ -3,8 +3,10 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 /* img */
 import Image from "next/image";
 import Head from "next/head";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 function listapi() {
+  const { data: session } = useSession();
   return (
     <>
       <Head>
@@ -17,18 +19,28 @@ function listapi() {
       {/* <div>
         <Image src={Banner} alt="Banner" />
       </div> */}
-      <div className="container rounded-md bg-gradient-to-r  from-gra-s to-gra-e h-auto grid grid-cols-3 items-center relative xs:py-2 md:text-left xs:text-center">
-        <div className="lg:ml-22 md:ml-10 xs:ml-5 z-10 md:col-span-1 xs:col-span-3">
+      <div className="rounded-md bg-gradient-to-r flex-wrap from-gra-s to-gra-e h-auto grid grid-cols-3 grid-flow-row	 items-center relative xs:py-2 lg:text-left xs:text-center">
+        <div className="lg:ml-22 md:ml-10 xs:ml-5 z-10 lg:col-span-1 xs:col-span-3">
           <div className="text-white mb-4">
             <h1 className="text-3xl">กรุณาเข้าสู่ระบบก่อนการใช้งาน</h1>
             <p className="text-base">ดาวน์โหลดแอปพลิเคชันสำหรับเข้าสู่ระบบ</p>
           </div>
-          <button className="rounded-full w-44 h-12 bg-white hover:scale-105 hover:duration-200">
+          {session?.user ? (
+            <button className="rounded-full w-auto px-3 h-12 bg-white hover:scale-105 hover:duration-200">
+              v1.11.0
+              <p className="text-xs">ปรับปรุงเมื่อ 22/02/2565</p>
+            </button>
+          ) : (
+            <button onClick={() => signIn()} className="rounded-full w-auto px-3 h-12 bg-white hover:scale-105 hover:duration-200">
+              กรุณาเข้าสู่ระบบก่อนดาวน์โหลด
+            </button>
+          )}
+          {/*    <button className="rounded-full w-44 h-12 bg-white hover:scale-105 hover:duration-200">
             v1.11.0
             <p className="text-xs">ปรับปรุงเมื่อ 22/02/2565</p>
-          </button>
+          </button> */}
         </div>
-        <div className="p-3 w-full h-auto md:col-span-2 xs:col-span-3 flex flex-col gap-2">
+        <div className="p-3 w-full h-auto lg:col-span-2 xs:col-span-3 flex flex-col gap-2">
           <div className="w-full bg-white py-3 px-6 rounded-md">
             <h1 className="font-bold">รูปแบบการร้องขอข้อมูล</h1>
             <div className="flex flex-wrap gap-2 my-2">

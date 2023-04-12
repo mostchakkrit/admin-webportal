@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import logo from "../public/images/login/logo-login.png";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
+import { signIn } from "next-auth/react";
 
 export default function Login() {
   /*   const [query, setQuery] = useState({
@@ -18,10 +19,21 @@ export default function Login() {
     }));
   };
  */
-  const formSubmit = (e: any) => {
-    /* e.preventDefault(); */ /* use */
-    window.location.href = "www.google.com";
-    console.log("test");
+  const userName = useRef("");
+  const pass = useRef("");
+  const formSubmit = async (e: any) => {
+    e.preventDefault(); /* use */
+    var res: any = await signIn("credentials", {
+      username: userName.current,
+      password: pass.current,
+      redirect: false,
+    });
+    if (res.ok == true) {
+      alert("ล็อคอินเสร็จสิ้น");
+      window.location.href = "/";
+    } else {
+      alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
+    }
     /*    const formData = new FormData();
     Object.entries(query).forEach(([key, value]) => {
       formData.append(key, value);
@@ -49,6 +61,7 @@ export default function Login() {
                   placeholder="ชื่อผู้ใช้งาน"
                   className="bg-slate-200 placeholder-black text-gray-900 text-sm rounded-3xl outline-slate-200 w-96 p-2.5
                   focus:bg-stone-100 focus:border-slate-100 focus:placeholder-slate-300 hover:border-slate-100"
+                  onChange={(e) => (userName.current = e.target.value)}
                   required
                 />
               </div>
@@ -58,6 +71,7 @@ export default function Login() {
                   placeholder="รหัสผ่าน"
                   className="bg-slate-200 placeholder-black text-gray-900 text-sm rounded-3xl outline-slate-200 w-96 p-2.5
                   focus:bg-stone-100 focus:border-slate-100 focus:placeholder-slate-300 hover:border-slate-100"
+                  onChange={(e) => (pass.current = e.target.value)}
                   required
                 />
               </div>
@@ -80,14 +94,12 @@ export default function Login() {
                 </Link>
               </div>
               <div className="flex justify-center items-center">
-                <Link href="/steps">
-                  <button
-                    type="submit"
-                    className="bg-gradient-to-r w-[300px] h-[60px] from-gra-s rounded-full to-gra-e text-white"
-                  >
-                    เข้าสู่ระบบ
-                  </button>
-                </Link>
+                <button
+                  type="submit"
+                  className="bg-gradient-to-r w-[300px] h-[60px] from-gra-s rounded-full to-gra-e text-white"
+                >
+                  เข้าสู่ระบบ
+                </button>
               </div>
               <div className="flex justify-center items-center mt-4">
                 <Link href="">

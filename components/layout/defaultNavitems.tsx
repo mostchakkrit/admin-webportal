@@ -32,11 +32,7 @@ export const defaultNavItems: NavItem[] = [
     href: "/listapi",
     icon: <BsCardList className="w-6 h-6" />,
   },
-  {
-    label: "เข้าใช้งานระบบ",
-    href: "/login",
-    icon: <CiLogin className="w-6 h-6" />,
-  },
+
   {
     label: "ช่องทางติดต่อช่วยเหลือ",
     href: "/contact",

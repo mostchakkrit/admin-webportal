@@ -8,7 +8,7 @@ const Navbar = (props: Props) => {
   return (
 
       <button className="md:hidden" onClick={props.onMenuButtonClick}>
-        <Bars3Icon className="md:hidden w-16 absolute top-4 right-4 inline-flex justify-center rounded-md p-2 text-gray-800 hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" />
+        <Bars3Icon className="bg-slate-200 md:hidden w-12 fixed top-[47px] z-50 right-5 inline-flex justify-center rounded-md p-2 text-gray-800 hover:bg-gradient-to-r from-gra-s to-gra-e hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" />
       </button>
    
   );

@@ -6,6 +6,10 @@ import { defaultNavItems } from "./defaultNavitems";
 import { useOnClickOutside } from "usehooks-ts";
 import Logo from "../../public/images/menu/logo.png";
 import { useRouter } from "next/router";
+import { CgProfile } from "react-icons/cg";
+import { CiLogin, CiLogout } from "react-icons/ci";
+import { useSession, signIn, signOut } from "next-auth/react";
+
 // define a NavItem prop
 export type NavItem = {
   label: string;
@@ -20,6 +24,7 @@ type Props = {
 };
 
 const Sidebar = ({ open, navItems = defaultNavItems, setOpen }: Props) => {
+  const { data: session } = useSession();
   const router = useRouter();
   /* console.log(router.pathname); */
   const ref = useRef<HTMLDivElement>(null);
@@ -41,7 +46,7 @@ const Sidebar = ({ open, navItems = defaultNavItems, setOpen }: Props) => {
       <nav className="md:sticky top-0 ">
         <div className="ml-3 flex items-center">
           <Image src={Logo} alt="Doh logo" className="w-[62px] h-[62px] " />
-          <h1 className=" cursor-pointer font-bold text-doh-blue ml-3 text-2xl">
+          <h1 className="cursor-pointer font-bold text-doh-blue ml-3 text-2xl">
             กรมอนามัย
           </h1>
         </div>
@@ -74,25 +79,53 @@ const Sidebar = ({ open, navItems = defaultNavItems, setOpen }: Props) => {
         </ul>
       </nav>
       {/* account  */}
-      {/*  <div className="border-t border-t-indigo-800 p-4">
-        <div className="flex gap-4 items-center">
-              <Image
-            src={
-              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-            }
-            height={36}
-            width={36}
-            alt="profile image"
-            className="rounded-full"
-          />
+      <div className="border-t  py-4">
+        <ul className="py-2 flex flex-col gap-2">
+          {session?.user ? (
+            <>
+              <li className="flex gap-4 items-center px-3 rounded-md cursor-default">
+                <CgProfile className="w-6 h-6"></CgProfile>
+                <span>
+                  {session.user.username} ({session.user.institution})
+                </span>
+              </li>
+              <li
+                onClick={() => signOut()}
+                className={classNames({
+                  "flex gap-4 items-center": true, //layout
+                  "transition-colors duration-300": true, //animation
+                  "text-doh-text-gray hover:bg-gradient-to-r from-gra-s to-gra-e p-3 hover:text-white cursor-pointer rounded-md":
+                    true, //self style
+                })}
+              >
+                <CiLogout className="w-6 h-6"></CiLogout>
+                <span>ออกจากระบบ</span>
+              </li>
+            </>
+          ) : (
+            <li
+              onClick={() => signIn()}
+              className={classNames({
+                "flex gap-4 items-center ": true, //layout
+                "transition-colors duration-300": true, //animation
+                "text-doh-text-gray hover:bg-gradient-to-r from-gra-s to-gra-e p-3 hover:text-white cursor-pointer rounded-md":
+                  true, //self style
+              })}
+            >
+              <CiLogin className="w-6 h-6"></CiLogin>
+              <span>เข้าใช้งานระบบ</span>
+            </li>
+          )}
+        </ul>
+        {/*   <div className="flex gap-3 items-center">
           <div className="flex flex-col ">
-            <span className="text-indigo-50 my-0">Tom Cook</span>
-            <Link href="/" className="text-indigo-200 text-sm">
-              View Profile
-            </Link>
+            <CgProfile className="y w-6 h-6"/>
           </div>
-        </div>
-      </div> */}
+          <div className="flex flex-col text-md font-medium">
+            <span className=" my-0">Tom Cook</span>
+          </div>
+        </div> */}
+      </div>
     </div>
   );
 };

@@ -8,6 +8,7 @@ import { TbWorld } from "react-icons/tb";
 import { FaInstagramSquare } from "react-icons/fa";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import Head from "next/head";
+
 const contactData = [
   {
     label: "ขั้นตอนการเข้าใช้งานระบบ",
@@ -203,8 +204,8 @@ function contact() {
           className="cursor-pointer xs:hidden 2xl:block border-4 border-white rounded-full drop-shadow-lg absolute right-[74px] bottom-[58px]"
         ></Image>
         {/* textMid */}
-        <div className="z-10 mx-3 flex flex-col flex-wrap">
-          <p className="text-white font-bold text-2xl">รวมช่องทาง</p>
+        <div className="z-10 mx-3 flex flex-col flex-wrap lg:text-start xs:text-center">
+          <p className="text-white font-bold text-2xl mb-2">รวมช่องทาง</p>
           <div className="md:flex xs:inline-block items-center gap-3">
             <p className="text-white font-bold text-[90px] xs:leading-[80px]">
               ติดต่อฉุกเฉิน
@@ -236,9 +237,9 @@ function contact() {
             return (
               <div
                 key={index}
-                className="flex justify-start w-full my-3 py-2 items-center gap-3"
+                className="flex w-full my-3 py-2 items-center gap-3"
               >
-                <div>
+                <div className="lg:w-auto xs:w-1/3">
                   <Image
                     src={item.src!}
                     width={140}
@@ -247,7 +248,7 @@ function contact() {
                     className="cursor-pointer border-4 border-white rounded-full drop-shadow-lg"
                   ></Image>
                 </div>
-                <div>
+                <div className="lg:w-auto xs:w-2/3 md:ms-1 xs:ms-2">
                   <div className="flex">
                     <p className="text-lg font-bold pb-3 mb-3 border-b border-[#4acfd5]">
                       {item.label}
