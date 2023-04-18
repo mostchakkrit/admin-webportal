@@ -4,10 +4,14 @@ import Sidebar from "./Sidebar";
 
 const Layout = (props: PropsWithChildren) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const ToggleSidebar = () => {
+    sidebarOpen === false ? setSidebarOpen(true) : setSidebarOpen(false);
+  };
+
   return (
     <div className="min-h-screen">
       <div>
-        <Navbar onMenuButtonClick={() => setSidebarOpen((prev) => !prev)} />
+        <Navbar open={sidebarOpen} setOpen={setSidebarOpen}  />
       </div>
 
       <div className="grid md:grid-cols-sidebar">

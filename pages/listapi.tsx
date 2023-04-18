@@ -133,7 +133,7 @@ function Listapi() {
       {/* ประเภท */}
       <div className="w-full my-4">
         <div className="flex justify-between flex-wrap">
-          <div className="flex gap-3">
+          <div className="flex gap-3 md:mb-0 xs:mb-2">
             <h1 className="text-base">ประเภท</h1>
             <select
               name=""
