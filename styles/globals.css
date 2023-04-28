@@ -6,10 +6,38 @@
   body {
     /* @apply bg-gray-100; */
     font-family: "Noto Sans Thai", sans-serif;
-    color: #273D4B;
+    color: #273d4b;
   }
-/*   .two-bg {
+  /*   .two-bg {
     background-image: linear-gradient(to right, #49CED8, #59DEBB),
       url("/images/stepsImg/bg-banner.png");
   } */
+}
+
+.media1,
+.media2,
+.media3,
+.media4,
+.media5 {
+  width: 94%;
+  height: 400px;
+  margin: 3%;
+}
+.media1 {
+  background-color: #273d4b;
+}
+.media2 {
+  background-color: black;
+}
+
+.media3 {
+  background-color: red;
+}
+
+.media4 {
+  background-color: pink;
+}
+
+.media5 {
+  background-color: blue;
 }

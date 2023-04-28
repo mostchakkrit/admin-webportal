@@ -39,7 +39,8 @@ module.exports = {
       },
       backgroundImage: {
         "login-img": "url('/images/login/girl-practicing-yoga.png')",
-        "steps-banner": "url('/images/stepsImg/bg-banner.png'),linear-gradient(to right, #49CED8, #59DEBB)",
+        "steps-banner":
+          "url('/images/stepsImg/bg-banner.png'),linear-gradient(to right, #49CED8, #59DEBB)",
         "contact-banner": "url('/images/contact/banner.png')",
       },
       /*   gridTemplateRows: {
@@ -47,5 +48,5 @@ module.exports = {
       }, */
     },
   },
-  plugins: [],
+  plugins: [require("flowbite/plugin")],
 };
