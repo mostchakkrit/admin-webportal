@@ -3,7 +3,7 @@ import React from "react";
 
 function Manual() {
   return <>
-   test1234
+   okokoko
   </>;
 }
 export default Manual;
