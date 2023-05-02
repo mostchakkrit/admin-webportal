@@ -1,32 +1,39 @@
-import Link from "next/link";
-import Head from "next/head";
+import React, { useState } from "react";
 
-import React from "react";
-import Image from "next/image";
-
-import regisMa from "../public/images/manual/regisMa.jpg";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 
 function Manual() {
+  const [currentSlide, setCurrentSlide] = useState(1);
+
+  const handleSlideChange = (index: number) => {
+    setCurrentSlide(index+1);
+  }
   return <>
-  <Carousel width={"80%"} showThumbs={false}>
+  <Carousel width={"80%"} showThumbs={false} onChange={handleSlideChange}>
   <div>
-      <img src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"/>
-      <p className="legend">คู่มือลงทะเบียน</p>
+    <img src="/images/manual/regisMa.jpg" alt="regisMa"/>
+    <p className="legend">คู่มือลงทะเบียน</p>
   </div>
   <div>
-      <img src="/images/manual/regisMa.jpg" alt={"regisMa"}/>
-      <p className="legend">คู่มือการเข้าสู่ระบบ</p>
+    <img src="/images/manual/loginMa.jpg" alt="loginMa"/>
+    <p className="legend">คู่มือการเข้าสู่ระบบ</p>
   </div>
   <div>
-      <img src="https://images.unsplash.com/photo-1526666923127-b2970f64b422?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80"/>
-      <p className="legend">คู่มือการดาวน์โหลด</p>
+    <img src="/images/manual/dowMa.jpg" alt="dowMa"/>
+    <p className="legend">คู่มือการดาวน์โหลด</p>
+  </div>
+  <div>
+    <img src="/images/manual/Ma1.jpg" alt="Ma1"></img>
+    <p className="legend">คู่มือ1</p>
+  </div>
+  <div>
+    <img src="/images/manual/Ma2.jpg" alt="Ma2"></img>
+    <p className="legend">คู่มือ2</p>
   </div>
   </Carousel>
-
   <div>
-    jskdsjg
+    <p>This is page {currentSlide}</p> 
   </div>
   </>;
 }
