@@ -41,3 +41,11 @@
 .media5 {
   background-color: blue;
 }
+.textWrap {
+  text-align: center;
+}
+.Wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
