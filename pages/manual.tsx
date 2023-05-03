@@ -1,33 +1,36 @@
-import Link from "next/link";
-import Head from "next/head";
-
-import React from "react";
-import Image from "next/image";
-
-import regisMa from "../public/images/manual/regisMa.jpg";
+import React, { useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 
 function Manual() {
-  return <>
-  <Carousel width={"80%"} showThumbs={false}>
-  <div>
-      <img src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"/>
-      <p className="legend">คู่มือลงทะเบียน</p>
-  </div>
-  <div>
-      <img src="/images/manual/regisMa.jpg" alt={"regisMa"}/>
-      <p className="legend">คู่มือการเข้าสู่ระบบ</p>
-  </div>
-  <div>
-      <img src="https://images.unsplash.com/photo-1526666923127-b2970f64b422?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80"/>
-      <p className="legend">คู่มือการดาวน์โหลด</p>
-  </div>
-  </Carousel>
+  const [currentSlide, setCurrentSlide] = useState(1);
 
-  <div>
-    jskdsjg
-  </div>
-  </>;
+  const SlideChange = (index: number) => {
+    setCurrentSlide(index+1);
+  }
+  return <>
+  <Carousel width={"80%"} showThumbs={false} onChange={SlideChange}>
+<div>
+  <img src="/images/manual/regisManual.jpg" alt="regisMan" id="regisMan"/>
+  <p className="legend">คู่มือการลงทะเบียน</p>
+</div>
+<div>
+  <img src="/images/manual/loginManual.jpg" alt="loginMan" id="loginMan"/>
+  <p className="legend">คู่มือการเข้าสู่ระบบ</p>
+</div>
+<div>
+  <img src="/images/manual/dowManual.jpg" alt="dowMan" id="dowMan"/>
+  <p className="legend">คู่มือการดาวน์โหลด</p>
+</div>
+<div>
+  <img src="/images/manual/Manual4.jpg" alt="Man1" id="Man1"></img>
+  <p className="legend">คู่มือการใช้งาน</p>
+</div>
+</Carousel>
+<div className="Infomation">
+  <div><p>This is page {currentSlide}</p> </div>
+
+</div>
+</>;
 }
 export default Manual;
