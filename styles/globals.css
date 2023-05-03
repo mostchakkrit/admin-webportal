@@ -50,12 +50,13 @@
   align-items: center;
 }
 
+
+
 .carousel-root {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .carousel-root img {
   height: 300px;
   object-fit: cover;
@@ -63,5 +64,16 @@
 .carousel .slide .legend {
   background: none !important;
   font-size: 25px !important;
+}
+
+.Infomation {
+  text-align: center;
+  padding-top: 25px;
+}
+.carousel .slider-wrapper {
+  border-radius: 0.375rem;
+}
+.carousel .carousel-status {
+  visibility: hidden;
 }
 

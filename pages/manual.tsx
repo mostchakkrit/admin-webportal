@@ -5,36 +5,32 @@ import { Carousel } from 'react-responsive-carousel';
 
 function Manual() {
   const [currentSlide, setCurrentSlide] = useState(1);
-
-  const handleSlideChange = (index: number) => {
+  const SlideChange = (index: number) => {
     setCurrentSlide(index+1);
   }
   return <>
-  <Carousel width={"80%"} showThumbs={false} onChange={handleSlideChange}>
-  <div>
-    <img src="/images/manual/regisMa.jpg" alt="regisMa"/>
-    <p className="legend">คู่มือลงทะเบียน</p>
-  </div>
-  <div>
-    <img src="/images/manual/loginMa.jpg" alt="loginMa"/>
-    <p className="legend">คู่มือการเข้าสู่ระบบ</p>
-  </div>
-  <div>
-    <img src="/images/manual/dowMa.jpg" alt="dowMa"/>
-    <p className="legend">คู่มือการดาวน์โหลด</p>
-  </div>
-  <div>
-    <img src="/images/manual/Ma1.jpg" alt="Ma1"></img>
-    <p className="legend">คู่มือ1</p>
-  </div>
-  <div>
-    <img src="/images/manual/Ma2.jpg" alt="Ma2"></img>
-    <p className="legend">คู่มือ2</p>
-  </div>
-  </Carousel>
-  <div>
-    <p>This is page {currentSlide}</p> 
-  </div>
-  </>;
+  <Carousel width={"80%"} showThumbs={false} onChange={SlideChange}>
+<div>
+  <img src="/images/manual/regisManual.jpg" alt="regisMan" id="regisMan"/>
+  <p className="legend">คู่มือการลงทะเบียน</p>
+</div>
+<div>
+  <img src="/images/manual/loginManual.jpg" alt="loginMan" id="loginMan"/>
+  <p className="legend">คู่มือการเข้าสู่ระบบ</p>
+</div>
+<div>
+  <img src="/images/manual/dowManual.jpg" alt="dowMan" id="dowMan"/>
+  <p className="legend">คู่มือการดาวน์โหลด</p>
+</div>
+<div>
+  <img src="/images/manual/Manual4.jpg" alt="Man1" id="Man1"></img>
+  <p className="legend">คู่มือการใช้งาน</p>
+</div>
+</Carousel>
+<div className="Infomation">
+  <div><p>This is page {currentSlide}</p> </div>
+
+</div>
+</>;
 }
 export default Manual;
