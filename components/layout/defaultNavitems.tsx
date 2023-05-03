@@ -11,7 +11,7 @@ export type NavItem = {
   href: string;
   icon: React.ReactNode;
 };
-import { BsCardList } from "react-icons/bs";
+import { BsCardList, BsFillQuestionSquareFill } from "react-icons/bs";
 import { HiOutlineBookOpen } from "react-icons/hi";
 import { AiOutlineFileText } from "react-icons/ai";
 import { CiLogin } from "react-icons/ci";
@@ -32,10 +32,14 @@ export const defaultNavItems: NavItem[] = [
     href: "/listapi",
     icon: <BsCardList className="w-6 h-6" />,
   },
-
   {
     label: "ช่องทางติดต่อช่วยเหลือ",
     href: "/contact",
     icon: <HiOutlineChatBubbleLeftRight className="w-6 h-6" />,
+  },
+  {
+    label: "คำถามที่พบบ่อย",
+    href: "/question",
+    icon: <BsFillQuestionSquareFill className="w-6 h-6" />,
   },
 ];
