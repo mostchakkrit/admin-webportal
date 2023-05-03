@@ -1,10 +1,10 @@
 import React, { useState } from "react";
+
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 
 function Manual() {
   const [currentSlide, setCurrentSlide] = useState(1);
-
   const SlideChange = (index: number) => {
     setCurrentSlide(index+1);
   }
