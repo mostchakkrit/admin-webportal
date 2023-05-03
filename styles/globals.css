@@ -75,3 +75,6 @@
 .carousel .carousel-status {
   visibility: hidden;
 }
+.title {
+  color: aqua;
+}
