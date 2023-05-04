@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-import { dataSlide } from "../public/data/dataslide";
+import { dataSlide } from "@/public/data/dataSlide";
 
 function Manual() {
   const [currentSlide, setCurrentSlide] = useState(1);
@@ -20,8 +20,9 @@ function Manual() {
     <div>${result.title === undefined ? "" : result.title}</div>
     <div>${result.title}</div>
     <div>${result.facebook}</div>
-    <div><a href="www.facebook.com/${result.facebook}">${result.facebook}</a></div>`
-    ;
+    <div><a href="www.facebook.com/${result.facebook}">${
+      result.facebook
+    }</a></div>`;
   };
   /* ${result.id} */
   {
@@ -30,8 +31,12 @@ function Manual() {
   {
     /* <div><h1>${result.title === undefined ? "" : result.title}</h1></div> */
   }
-  {/* <div><h3>${result.title}</h3></div> */}
-  {/* <div><h3><a href="www.facebook.com/${result.facebook}">${result.facebook}</a></h3></div>`; */}
+  {
+    /* <div><h3>${result.title}</h3></div> */
+  }
+  {
+    /* <div><h3><a href="www.facebook.com/${result.facebook}">${result.facebook}</a></h3></div>`; */
+  }
   return (
     <>
       <Carousel width={"80%"} showThumbs={false} onChange={SlideChange}>
@@ -59,7 +64,7 @@ function Manual() {
           <img src="/images/manual/Manual1.jpg" alt="Man1" id="Man1"></img>
           <p className="legend">คู่มือการใช้งาน</p>
         </div>
-{/*         <div>
+        {/*         <div>
           <img src="/images/manual/Manual2.jpg" alt="Man2" id="Man2"></img>
           <p className="legend">คู่มือการใช้งาน2</p>
         </div> */}
