@@ -6,6 +6,8 @@ import Head from "next/head";
 import Link from "next/link";
 import { AiFillLeftCircle, AiFillRightCircle } from "react-icons/ai";
 
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH;
+
 function healthLink() {
   return (
     <>
@@ -23,7 +25,7 @@ function healthLink() {
         {/* box 1 */}
         <div className="w-full">
           <Image
-            src="/images/stepsImg/healthlink.png"
+            src={BASE_PATH + "/images/stepsImg/healthlink.png"}
             width={0}
             height={0}
             sizes="100vw"

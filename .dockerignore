@@ -1,0 +1,8 @@
+*
+!/package.json
+!/package-lock.json
+!/.next
+!/public
+!/next.config.js
+!/.env
+!/.env.production

@@ -9,10 +9,12 @@ import { FaInstagramSquare } from "react-icons/fa";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import Head from "next/head";
 
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH;
+
 const contactData = [
   {
     label: "ขั้นตอนการเข้าใช้งานระบบ",
-    src: "/images/contact/doc.jpg",
+    src: BASE_PATH + "/images/contact/doc.jpg",
     social: [
       {
         icon: <BsFacebook className="text-[#1877f2]" />,
@@ -23,7 +25,7 @@ const contactData = [
   },
   {
     label: "Drama-addict",
-    src: "/images/contact/drama.jpg",
+    src: BASE_PATH + "/images/contact/drama.jpg",
     social: [
       {
         icon: <BsFacebook className="text-[#1877f2]" />,
@@ -34,12 +36,12 @@ const contactData = [
   },
   {
     label: "Drama-addict",
-    src: "/images/contact/missgrand.jpg",
+    src: BASE_PATH + "/images/contact/missgrand.jpg",
     social: [
       {
         icon: (
           <Image
-            src="/images/contact/LINE.png"
+            src={BASE_PATH + "/images/contact/LINE.png"}
             width={18}
             height={18}
             className="text-[#1877f2]"
@@ -53,7 +55,7 @@ const contactData = [
   },
   {
     label: "กลุ่มเส้นด้าย",
-    src: "/images/contact/zendai.jpeg",
+    src: BASE_PATH + "/images/contact/zendai.jpeg",
     social: [
       {
         icon: <TbWorld className="text-slate-600" />,
@@ -64,7 +66,7 @@ const contactData = [
   },
   {
     label: "เราต้องรอด",
-    src: "/images/contact/we-sur.jpg",
+    src: BASE_PATH + "/images/contact/we-sur.jpg",
     social: [
       {
         icon: <BsFacebook className="text-[#1877f2]" />,
@@ -75,7 +77,7 @@ const contactData = [
   },
   {
     label: "พรรคกล้า - KLA Party",
-    src: "/images/contact/kla.jpg",
+    src: BASE_PATH + "/images/contact/kla.jpg",
     social: [
       {
         icon: <BsFacebook className="text-[#1877f2]" />,
@@ -86,7 +88,7 @@ const contactData = [
   },
   {
     label: "สายด่วนจังหวัดปทุมธานี",
-    src: "/images/contact/moph.jpg",
+    src: BASE_PATH + "/images/contact/moph.jpg",
     social: [
       {
         icon: <BsFillTelephoneFill className="text-gra-s" />,
@@ -102,7 +104,7 @@ const contactData = [
   },
   {
     label: "รถราษฎร",
-    src: "/images/contact/rath.jpg",
+    src: BASE_PATH + "/images/contact/rath.jpg",
     social: [
       {
         icon: <BsFillTelephoneFill className="text-gra-s" />,
@@ -113,7 +115,7 @@ const contactData = [
   },
   {
     label: "ต้องรอด",
-    src: "/images/contact/upforthai.jpg",
+    src: BASE_PATH + "/images/contact/upforthai.jpg",
     social: [
       {
         icon: <BsFacebook className="text-[#1877f2]" />,
@@ -123,7 +125,7 @@ const contactData = [
       {
         icon: (
           <Image
-            src="/images/contact/LINE.png"
+            src={BASE_PATH + "/images/contact/LINE.png"}
             width={18}
             height={18}
             className="text-[#1877f2]"
@@ -161,21 +163,21 @@ function Contact() {
       <div className="bg-contact-banner bg-no-repeat bg-cover bg-center h-[546px] flex items-center justify-center relative w-full">
         {/* img left */}
         <Image
-          src="/images/contact/zendai.jpeg"
+          src={BASE_PATH + "/images/contact/zendai.jpeg"}
           width={167}
           height={1}
           className="cursor-pointer xs:hidden 2xl:block rounded-full border-4 border-white drop-shadow-lg absolute left-[79px] top-[100px]"
           alt="zen-dai"
         ></Image>
         <Image
-          src="/images/contact/missgrand.jpg"
+          src={BASE_PATH + "/images/contact/missgrand.jpg"}
           width={105}
           height={1}
           alt="miss"
           className="cursor-pointer xs:hidden 2xl:block border-4 border-white rounded-full drop-shadow-lg absolute left-[60px] bottom-[100px]"
         ></Image>
         <Image
-          src="/images/contact/we-sur.jpg"
+          src={BASE_PATH + "/images/contact/we-sur.jpg"}
           width={140}
           height={1}
           alt="miss"
@@ -183,21 +185,21 @@ function Contact() {
         ></Image>
         {/*  {img right} */}
         <Image
-          src="/images/contact/moph.jpg"
+          src={BASE_PATH + "/images/contact/moph.jpg"}
           width={149}
           height={1}
           alt="miss"
           className="cursor-pointer xs:hidden 2xl:block border-4 border-white rounded-full drop-shadow-lg absolute right-[68px] top-[54px]"
         ></Image>
         <Image
-          src="/images/contact/drama.jpg"
+          src={BASE_PATH + "/images/contact/drama.jpg"}
           width={132}
           height={1}
           alt="miss"
           className="cursor-pointer xs:hidden 2xl:block border-4 border-white rounded-full drop-shadow-lg absolute right-[218px] bottom-[197px]"
         ></Image>
         <Image
-          src="/images/contact/doc.jpg"
+          src={BASE_PATH + "/images/contact/doc.jpg"}
           width={146}
           height={1}
           alt="miss"

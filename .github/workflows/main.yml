@@ -1,0 +1,23 @@
+
+name: Actions
+
+on:
+  push:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+
+  build_deploy:
+    runs-on: doh_gdcc_7
+    defaults:
+      run:
+        shell: bash -leo pipefail {0}
+        working-directory: scripts
+    steps:
+      - uses: actions/checkout@v3
+
+      - run: ./build.sh
+
+      - run: ./deploy.sh

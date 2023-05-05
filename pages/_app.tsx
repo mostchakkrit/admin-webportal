@@ -13,7 +13,10 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     return <Component {...pageProps} />;
   }
   return (
-    <SessionProvider session={session}>
+    <SessionProvider
+      session={session}
+      basePath={process.env.NEXT_PUBLIC_BASE_PATH + "/api/auth"}
+    >
       <Layout>
         <Component {...pageProps} />
       </Layout>
