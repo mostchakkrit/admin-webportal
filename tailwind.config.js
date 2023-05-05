@@ -1,7 +1,5 @@
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH;
 
-console.log(basePath);
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
