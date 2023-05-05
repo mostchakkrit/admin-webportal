@@ -16,17 +16,18 @@ import { HiOutlineBookOpen } from "react-icons/hi";
 import { AiOutlineFileText } from "react-icons/ai";
 import { CiLogin } from "react-icons/ci";
 import { HiOutlineChatBubbleLeftRight } from "react-icons/hi2";
+import { BsQuestionCircle } from "react-icons/bs";
 export const defaultNavItems: NavItem[] = [
   {
     label: "ขั้นตอนการเข้าใช้งานระบบ",
     href: "/steps",
     icon: <AiOutlineFileText className="w-6 h-6" />,
   },
-  {
+  /* {
     label: "คู่มือการใช้งานระบบ",
     href: "/manual",
     icon: <HiOutlineBookOpen className="w-6 h-6" />,
-  },
+  }, */
   {
     label: "รายการ API ที่ให้บริการ",
     href: "/listapi",
@@ -41,6 +42,6 @@ export const defaultNavItems: NavItem[] = [
   {
     label: "คำถามที่พบบ่อย",
     href: "/question",
-    icon: <BsFillQuestionSquareFill className="w-6 h-6" />,
+    icon: <BsQuestionCircle className="w-6 h-6" />,
   },
 ];
