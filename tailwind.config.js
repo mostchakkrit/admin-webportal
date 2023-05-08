@@ -1,3 +1,5 @@
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH;
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -38,10 +40,13 @@ module.exports = {
         "doh-text-gray": "#B8C0C8",
       },
       backgroundImage: {
-        "login-img": "url('/images/login/girl-practicing-yoga.png')",
+        "login-img":
+          "url('" + basePath + "/images/login/girl-practicing-yoga.png')",
         "steps-banner":
-          "url('/images/stepsImg/bg-banner.png'),linear-gradient(to right, #49CED8, #59DEBB)",
-        "contact-banner": "url('/images/contact/banner.png')",
+          "url('" +
+          basePath +
+          "/images/stepsImg/bg-banner.png'),linear-gradient(to right, #49CED8, #59DEBB)",
+        "contact-banner": "url('" + basePath + "/images/contact/banner.png')",
       },
       /*   gridTemplateRows: {
         header: "64px auto", //for the navbar layout

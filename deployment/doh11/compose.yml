@@ -1,0 +1,5 @@
+services:
+  server:
+    image: localhost:5000/aaa/doh_new_webportal_admin:latest
+    ports:
+      - 10022:3000

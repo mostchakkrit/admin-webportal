@@ -10,7 +10,7 @@ type Props = {
   setOpen(open: boolean): void;
 };
 const Navbar = (props: Props) => {
-  console.log(props.open);
+  // console.log(props.open);
   return (
     <>
       {props?.open === false ? (

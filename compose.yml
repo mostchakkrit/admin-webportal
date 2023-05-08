@@ -1,0 +1,6 @@
+services:
+  server:
+    build: .
+    image: aaa/doh_new_webportal_admin:latest
+    ports:
+      - "3000:3000"
