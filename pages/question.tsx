@@ -1,9 +1,35 @@
-
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Head from "next/head";
-import Link from "next/link";
+import axios from "axios";
+
+/* interface question {
+  id: number;
+  question: string;
+  answer: string;
+  publish_to: string;
+  createed_dt: string;
+  updated_dt: string;
+} */
 
 function Question() {
+
+/*   const [Quest, setQuest] = useState<question[]>([]);
+  useEffect(() => {
+    fetch("https://thaihealthcare_gw.anamai.moph.go.th/faq/staff")
+      .then((res) => res.json())
+      .then((json) => setQuest(json));
+  }, []); */
+
+  const [data, setData ] = useState();
+
+  axios.get('https://thaihealthcare_gw.anamai.moph.go.th/faq/staff')
+  .then(response => {
+    console.log(response.data);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+
   return (
     <>
       <Head>
@@ -25,6 +51,21 @@ function Question() {
           </div>
         </div>
       </div>
+
+      <div>
+        <p>{data}</p>
+      </div>
+
+{/*       <div>
+        <ul>
+          {Quest.map((Q) => (
+            <li key={Q.id}>
+              <h3>{Q.question}</h3>
+              <h3>{Q.answer}</h3>
+            </li>
+          ))}
+        </ul>
+      </div> */}
     </>
   );
 }

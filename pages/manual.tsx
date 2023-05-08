@@ -1,7 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-import { dataSlide } from "../public/data/dataslide";
+import { dataSlide } from "../public/data/dataSlide";
 
 function Manual() {
   const [currentSlide, setCurrentSlide] = useState(1);
@@ -11,16 +11,31 @@ function Manual() {
     changeData(index + 1);
   };
 
+/*   const Fetch = () => {
+    fetch("https://thaihealthcare_gw.anamai.moph.go.th/faq/staff")
+    .then(res => {
+      return res.json()
+    })
+  }
+  useEffect(() => {
+    Fetch()
+  }, [])
+ */
+
+/*   const [testfetch, setTestFetch] = useState([]);
+  useEffect(() => {
+    fetch('https://thaihealthcare_gw.anamai.moph.go.th/faq/staff')
+    .then(res => res.json())
+    .then(json => setTestFetch(json))
+  }, []); */
+  
   const info: any = useRef();
 
   const changeData = (num: number) => {
     const result = dataSlide.find((data: any) => data.id === num);
     info.current.innerHTML = `
     <div class="title">page${result.text}</div>
-    <div>${result.title === undefined ? "" : result.title}</div>
-    <div>${result.title}</div>
-    <div>${result.facebook}</div>
-    <div><a href="www.facebook.com/${result.facebook}">${result.facebook}</a></div>`
+    <div>${result.title === undefined ? "" : result.title}</div>`
     ;
   };
   /* ${result.id} */
@@ -59,13 +74,17 @@ function Manual() {
           <img src="/images/manual/Manual1.jpg" alt="Man1" id="Man1"></img>
           <p className="legend">คู่มือการใช้งาน</p>
         </div>
-{/*         <div>
+        <div>
           <img src="/images/manual/Manual2.jpg" alt="Man2" id="Man2"></img>
           <p className="legend">คู่มือการใช้งาน2</p>
-        </div> */}
+        </div>
       </Carousel>
 
       <div className="Information" ref={info}></div>
+
+
+
+
     </>
   );
 }

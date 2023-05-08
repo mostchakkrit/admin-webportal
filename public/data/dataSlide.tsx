@@ -11,7 +11,7 @@ export const dataSlide: any = [
     id: 2,
     text: "2",
     facebook: "คนที่2",
-    title2:
+    title:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate rem omnis ex nostrum. Tempore numquam quos ducimus expedita corrupti enim maxime vel. Doloribus obcaecati sunt, non, rem et adipisci ratione optio consequuntur dolor magnam nihil reiciendis pariatur aliquid sequi laboriosam voluptatibus quidem odio doloremque iste facilis nisi magni possimus exercitationem?",
   },
   {
@@ -26,9 +26,10 @@ export const dataSlide: any = [
     facebook: "คนที่4",
     title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos dolores unde iste dolorem aliquam assumenda, nostrum libero odio culpa sed, ducimus vero corrupti in sit ex hic vitae! Quisquam iure quis sapiente consectetur modi temporibus earum, saepe rerum est quia. Qui, beatae iure quis ipsa magni possimus modi culpa deserunt at, nisi cum soluta explicabo optio consectetur numquam voluptatem fugiat earum corporis. Eos quibusdam, reprehenderit itaque dignissimos ipsa ex porro, voluptatibus soluta et amet nam accusantium praesentium, consequatur quisquam laboriosam?",
   },
-/*   {
+  {
     id: 5,
     text: 5,
     facebook: "คนที่5",
-  }, */
+    title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius deleniti ea nihil quaerat cum rerum libero, eligendi veritatis optio unde quisquam facilis. Voluptates vel cumque, quidem mollitia, itaque qui quisquam nihil inventore facere numquam error sint quos recusandae, consequatur explicabo! Consequatur voluptas reprehenderit commodi amet delectus iure aut perspiciatis ratione. Nesciunt, nulla praesentium eveniet natus totam commodi explicabo. Quibusdam quia sit vero, autem molestias quisquam veritatis. Exercitationem velit, placeat sequi alias maxime quo aspernatur consequuntur officiis reprehenderit nam necessitatibus odio temporibus voluptatem doloribus quibusdam, iusto laudantium illo vitae laborum accusamus.",
+  },
 ];
