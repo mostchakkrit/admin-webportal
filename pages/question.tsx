@@ -66,22 +66,45 @@ function Question() {
       <Head>
         <title>คำถามที่พบบ่อย</title>
       </Head>
-      <div className="col-span-12 xl:col-end-12 xl:col-start-2 w-full">
-        <div className="flex gap-3 items-center mb-3 mt-3">
-          <h1 className="text-2xl font-bold">คำถามที่พบบ่อย</h1>
+      <div className="w-full px-3 pb-[25px]">
+        <div className="gap-3 items-center mb-3 mt-3 col-span-4">
+          <h1 className="text-2xl font-bold">คำถามที่พบบ่อย (FAQ)</h1>
         </div>
-        <div className="col-span-12 xl:col-end-12 xl:col-start-2 overflow-auto h-[400px]">
-          <div className="px-4 w-full sm:px-6 lg:px-8">
-            <div className="flow-root mt-10">
-              <div className="divide-y divide-gray--200 -my-9">
-                {post?.data?.slice(0, 3).map((el: any) => (
-                  <div className="py-9" key={el.id}>
-                    <p className="text-xl font-semibold">
-                      คำถาม : {el.question} ?
-                    </p>
-                    <p className="mt-3 text-base">คำตอบ : {el.answer}</p>
-                  </div>
-                ))}
+        <div className="flex gap-9">
+          <div className="w-1/3 py-4">
+            <img className="rounded-lg" src="images/question/quest.jpg"></img>
+          </div>
+          <div className="w-2/4">
+            <div className="grid grid-cols-1">
+              <div className="w-full p-2 my-2 rounded-lg border dark:bg-doh-green hover:bg-[#4bd0d5] hover:scale-105 hover:duration-200 py-1">
+                <p>
+                  <a href="">1. การเพิ่มคำถามที่พบได้บ่อย</a>
+                </p>
+              </div>
+              <div className="w-full p-2 my-2 rounded-lg border dark:bg-doh-green hover:bg-[#4bd0d5] hover:scale-105 hover:duration-200 py-1">
+                <p>
+                  <a href="">2. การลบคำถามที่พบได้บ่อย</a>
+                </p>
+              </div>
+              <div className="w-full p-2 my-2 rounded-lg border dark:bg-doh-green hover:bg-[#4bd0d5] hover:scale-105 hover:duration-200 py-1">
+                <p>
+                  <a href="">3. วิธีมอบสิทธิ์เข้าเพจใหม่</a>
+                </p>
+              </div>
+              <div className="w-full p-2 my-2 rounded-lg border dark:bg-doh-green hover:bg-[#4bd0d5] hover:scale-105 hover:duration-200 py-1">
+                <p>
+                  <a href="">4. ถูกจำกัดบทสนทนา</a>
+                </p>
+              </div>
+              <div className="w-full p-2 my-2 rounded-lg border dark:bg-doh-green hover:bg-[#4bd0d5] hover:scale-105 hover:duration-200 py-1">
+                <p>
+                  <a href="">5. ไม่สามารถดูรูปเก่าๆในแชทได้</a>
+                </p>
+              </div>
+              <div className="w-full p-2 my-2 rounded-lg border dark:bg-doh-green hover:bg-[#4bd0d5] hover:scale-105 hover:duration-200 py-1">
+                <p>
+                  <a href="">6. ระบบไม่แจ้งเตือน</a>
+                </p>
               </div>
             </div>
           </div>
@@ -89,7 +112,7 @@ function Question() {
       </div>
 
       <form method="post" onSubmit={(f: any) => submit(f)}>
-        <div className="w-full px-3  pb-[20px] grid grid-cols-12 gap-y-8">
+        <div className="w-full px-3 pb-[20px] grid grid-cols-12 gap-y-5">
           <div className="gap-3 col-span-12 items-center mb-3 mt-3">
             <h1 className="text-2xl font-bold">คำแนะนำติชม</h1>
           </div>
@@ -132,7 +155,9 @@ function Question() {
               <div className="w-full flex-1 sm:flex-[40%]">
                 <label>เบอร์โทรศัพท์</label>
                 <input
-                  type="tel" pattern="[0-9]{10}" maxLength={10}
+                  type="tel"
+                  pattern="[0-9]{10}"
+                  maxLength={10}
                   ref={phone}
                   required
                   className="w-full p-2 my-2 rounded-lg border"
