@@ -44,4 +44,9 @@ export const defaultNavItems: NavItem[] = [
     href: "/question",
     icon: <BsQuestionCircle className="w-6 h-6" />,
   },
+  {
+    label: "คำถามที่พบบ่อยทั้งหมด",
+    href: "/question-details",
+    icon: <BsQuestionCircle className="w-6 h-6" />,
+  },
 ];

@@ -61,7 +61,7 @@ const Sidebar = ({ open, navItems = defaultNavItems, setOpen }: Props) => {
                   router.pathname === item.href
                     ? "bg-gradient-to-r from-gra-s to-gra-e text-white rounded-md"
                     : "text-doh-text-gray hover:bg-gradient-to-r rounded-md from-gra-s to-gra-e hover:text-white"
-                }`}
+                } ${item.label === "คำถามที่พบบ่อยทั้งหมด" ? "hidden" : ""}`}
               >
                 <li
                   id={item.href}

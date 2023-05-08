@@ -1,45 +1,30 @@
-import { dataSlide } from "@/public/data/dataSlide";
-import { useRef, useState } from "react";
-import { Carousel } from "react-responsive-carousel";
+import React, { useRef, useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
+import { dataSlide } from "@/public/data/dataSlide";
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH;
 
 function Manual() {
   const [currentSlide, setCurrentSlide] = useState(1);
-
   const SlideChange = (index: number) => {
     setCurrentSlide(index + 1);
     changeData(index + 1);
   };
-
   const info: any = useRef();
 
   const changeData = (num: number) => {
     const result = dataSlide.find((data: any) => data.id === num);
-    info.current.innerHTML = `
-    <div class="title">page${result.text}</div>
-    <div>${result.title === undefined ? "" : result.title}</div>
-    <div>${result.title}</div>
-    <div>${result.facebook}</div>
-    <div><a href="www.facebook.com/${result.facebook}">${
+    info.current.innerHTML = `<div class="title">page${result.text}of4</div>
+    <div><h1>${result.title === undefined ? "" : result.title}</h1></div>
+    <div><h3><a href="www.facebook.com/${result.facebook}">${
       result.facebook
-    }</a></div>`;
+    }</a></h3></div>`;
   };
   /* ${result.id} */
   {
     /* <img src="${result.img}"></img> */
   }
-  {
-    /* <div><h1>${result.title === undefined ? "" : result.title}</h1></div> */
-  }
-  {
-    /* <div><h3>${result.title}</h3></div> */
-  }
-  {
-    /* <div><h3><a href="www.facebook.com/${result.facebook}">${result.facebook}</a></h3></div>`; */
-  }
-
   return (
     <>
       <Carousel width={"80%"} showThumbs={false} onChange={SlideChange}>
@@ -77,7 +62,7 @@ function Manual() {
         </div>
       </Carousel>
 
-      <div className="Information" ref={info}></div>
+      <div className="Infomation" ref={info}></div>
     </>
   );
 }
