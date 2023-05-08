@@ -11,24 +11,6 @@ function Manual() {
     changeData(index + 1);
   };
 
-/*   const Fetch = () => {
-    fetch("https://thaihealthcare_gw.anamai.moph.go.th/faq/staff")
-    .then(res => {
-      return res.json()
-    })
-  }
-  useEffect(() => {
-    Fetch()
-  }, [])
- */
-
-/*   const [testfetch, setTestFetch] = useState([]);
-  useEffect(() => {
-    fetch('https://thaihealthcare_gw.anamai.moph.go.th/faq/staff')
-    .then(res => res.json())
-    .then(json => setTestFetch(json))
-  }, []); */
-  
   const info: any = useRef();
 
   const changeData = (num: number) => {
