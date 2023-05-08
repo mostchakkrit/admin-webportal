@@ -88,7 +88,7 @@ function Question() {
               </Link>
             </div> */}
             <div className="grid grid-cols-1">
-              {post?.data?.slice(0, 6).map((el: any, i: number) => (
+              {post?.data?.slice(0, 5).map((el: any, i: number) => (
                 <Link href={"/question-details"} key={el.id}>
                   <div className="w-full p-2 my-2 rounded-lg border dark:bg-doh-green hover:bg-[#4bd0d5] hover:scale-105 hover:duration-200 py-1">
                     <p className="cursor-pointer">

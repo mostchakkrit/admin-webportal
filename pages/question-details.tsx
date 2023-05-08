@@ -32,7 +32,7 @@ function questionDetails() {
           <div className="px-4 w-full sm:px-6 lg:px-8">
             <div className="flow-root mt-10">
               <div className="divide-y divide-gray--200 -my-9">
-                {post?.data?.slice(0, 3).map((el: any, i: number) => (
+                {post?.data?.map((el: any, i: number) => (
                   <div className="py-9" key={el.id}>
                     <p className="text-xl font-semibold">
                       {i + 1}. คำถาม : {el.question} ?
