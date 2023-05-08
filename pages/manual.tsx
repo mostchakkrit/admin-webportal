@@ -5,7 +5,6 @@ import { dataSlide } from "../public/data/dataset";
 
 function Manual() {
   const [currentSlide, setCurrentSlide] = useState(1);
-
   const SlideChange = (index: number) => {
     setCurrentSlide(index + 1);
     changeData(index + 1);
