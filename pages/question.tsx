@@ -132,7 +132,7 @@ function Question() {
               <div className="w-full flex-1 sm:flex-[40%]">
                 <label>เบอร์โทรศัพท์</label>
                 <input
-                  type="tel"
+                  type="tel" pattern="[0-9]{10}" maxLength={10}
                   ref={phone}
                   required
                   className="w-full p-2 my-2 rounded-lg border"
