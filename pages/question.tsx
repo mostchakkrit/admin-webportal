@@ -12,28 +12,40 @@ import { IoIosArrowDropright } from "react-icons/io";
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH;
 
 function Question() {
-  const [selectedOption, setSelectedOption] = useState();
-
-  const ButtonClick = (option: any) => {
-    setSelectedOption(option);
-    choiceTitle(option);
-    console.log(option);
+  const ButtonClick = (th: any, option: any, control: any) => {
+    const ckBtn = document.querySelector(`.${control}`);
+    /*  */
+    if (ckBtn!.hasAttribute("disabled")) {
+      return;
+    }
+    /*  */
+    clearBtn();
+    if (ckBtn!.classList.contains("active")) {
+    } else {
+      ckBtn!.setAttribute("disabled", "");
+      ckBtn!.classList.remove("unactive");
+      ckBtn!.classList.add("active");
+    }
   };
-  const isStaffOption = selectedOption === "staff";
-  const isUSystemOption = selectedOption === "uSystem";
-  const isAnotherOption = selectedOption === "another";
+
+  const clearBtn = () => {
+    const box_topic = document.querySelectorAll("#boxTopic");
+    box_topic.forEach((el: any) => {
+      el.classList.remove("active");
+      el.removeAttribute("disabled", "");
+      el.classList.add("unactive");
+    });
+  };
 
   const [post, setPost]: any = useState();
   const [loading, setLoading] = useState(true);
   let textArea: any = useRef();
-  let select: any = useRef();
+
   let firstname: any = useRef();
   let lastname: any = useRef();
   let radio: any = useRef();
   let phone: any = useRef();
-  /* let email: any = useRef();  */
-  let staff: any = useRef();
-  let uSystem: any = useRef();
+
   let another: any = useRef();
 
   useEffect(() => {
@@ -48,18 +60,7 @@ function Question() {
         setLoading(false);
       });
   }, []);
-  const choiceTitle = (e: any) => {
-    if (staff.current.checked === true) {
-      uSystem.current.setAttribute("disabled", "disabled");
-      another.current.setAttribute("disabled", "disabled");
-    } else if (uSystem.current === true) {
-      staff.current.setAttribute("disabled", "disabled");
-      another.current.setAttribute("disabled", "disabled");
-    } else if (another.current === true) {
-      staff.current.setAttribute("disabled", "disabled");
-      uSystem.current.setAttribute("disabled", "disabled");
-    }
-  };
+
   const onUnknow = () => {
     if (radio.current.checked === true) {
       firstname.current.value = "---";
@@ -74,10 +75,16 @@ function Question() {
     }
   };
   function submit(form: any) {
+    let activeRes = document.querySelector(`.active`) as HTMLButtonElement;
+
+    if (!activeRes) {
+      alert("กรุณาเลือกหัวข้อ");
+      return;
+    }
     const data = {
       firstname: firstname.current.value,
       lastname: lastname.current.value,
-      /* group: select.current.value, */
+      group: activeRes.value,
       message: textArea.current.value,
     };
     axios
@@ -105,7 +112,7 @@ function Question() {
           <div className="w-1/3 py-4">
             <img
               className="rounded-lg"
-              src={BASE_PATH + "/images/question/quest.jpg"}
+              src={BASE_PATH + "/images/question/quest.png"}
             ></img>
           </div>
           <div className="w-2/4">
@@ -133,40 +140,6 @@ function Question() {
         </div>
       </div>
 
-      {/* testtesttesttesttesttesttesttesttest */}
-      <div className="container mx-auto">
-        <div className="grid grid-cols-3 gap-6">
-          {/* <button
-            onClick={() => handleButtonClick("staff")}
-            disabled={isStaffOption}
-            className={`relative inline-flex py-20 flex justify-center p-6 text-lg hover:bg-[#4bd0d5] border border-slate-50 shadow-md hover:border-0 hover:text-white duration-75 border-doh-blue rounded-xl ${
-              isStaffOption ? "bg-[#4bd0d5] text-white" : "bg-gray-300"
-            }`}
-          >
-            <BsBuildingFillCheck className="object-cover h-10 w-10" />
-          </button>
-          <button
-            onClick={() => handleButtonClick("uSystem")}
-            disabled={isUSystemOption}
-            className={`relative inline-flex py-20 flex justify-center p-6 text-lg hover:bg-[#4bd0d5] border border-slate-50 shadow-md hover:border-0 hover:text-white duration-75 border-doh-blue rounded-xl ${
-              isUSystemOption ? "bg-[#4bd0d5] text-white" : "bg-gray-300"
-            }`}
-          >
-            <FaUserCog className="object-cover h-10 w-10" />
-          </button>
-          <button
-            onClick={() => handleButtonClick("another")}
-            disabled={isAnotherOption}
-            className={`relative inline-flex py-20 flex justify-center p-6 text-lg hover:bg-[#4bd0d5] border border-slate-50 shadow-md hover:border-0 hover:text-white duration-75 border-doh-blue rounded-xl ${
-              isAnotherOption ? "bg-[#4bd0d5] text-white" : "bg-gray-300"
-            }`}
-          >
-            <AiOutlineBars className="object-cover h-10 w-10" />
-          </button> */}
-        </div>
-      </div>
-      {/*  */}
-
       <form method="post" onSubmit={(f: any) => submit(f)}>
         <div className="w-full px-3 pb-[20px] grid grid-cols-12 gap-y-5">
           <div className="gap-3 col-span-12 items-center mb-3 mt-3">
@@ -180,37 +153,35 @@ function Question() {
               <div className="container mx-auto">
                 <div className="grid grid-cols-3 gap-6">
                   <button
-                    onClick={() => ButtonClick("staff")}
-                    disabled={isStaffOption}
-                    className={`relative inline-flex py-20 flex justify-center p-6 text-lg hover:bg-[#4bd0d5] border border-slate-50 shadow-md hover:border-0 hover:text-white duration-75 border-doh-blue rounded-xl ${
-                      isStaffOption ? "bg-[#4bd0d5] text-white" : "bg-gray-300"
-                    }`}
+                    type="button"
+                    id="boxTopic"
+                    onClick={(btn) => ButtonClick(btn, "staff", "btnFirst")}
+                    className={`flex-col gap-3 items-center btnFirst relative min-w-full min-h-full text-black  py-20 flex justify-center p-6 text-lg hover:bg-[#4bd0d5] border border-slate-50 shadow-md hover:border-0 hover:text-white duration-75 rounded-xl `}
+                    value={"การบริการของเจ้าหน้าที่"}
                   >
                     <BsBuildingFillCheck className="object-cover h-10 w-10" />
+                    <div>การบริการของเจ้าหน้าที่</div>
                   </button>
+
                   <button
-                    onClick={() => ButtonClick("uSystem")}
-                    disabled={isUSystemOption}
-                    className={`relative inline-flex py-20 flex justify-center p-6 text-lg hover:bg-[#4bd0d5] border border-slate-50 shadow-md hover:border-0 hover:text-white duration-75 border-doh-blue rounded-xl 
-                    ${
-                      isUSystemOption
-                        ? "bg-[#4bd0d5] text-white"
-                        : "bg-gray-300"
-                    }`}
+                    id="boxTopic"
+                    onClick={(btn) => ButtonClick(btn, "uSystem", "btnTwo")}
+                    type="button"
+                    className={`flex-col gap-3 items-center btnTwo relative w-full text-black  py-20 flex justify-center p-6 text-lg hover:bg-[#4bd0d5] border border-slate-50 shadow-md hover:border-0 hover:text-white duration-75 rounded-xl `}
+                    value={"การใช้งานระบบ"}
                   >
                     <FaUserCog className="object-cover h-10 w-10" />
+                    <div>การใช้งานระบบ</div>
                   </button>
+
                   <button
-                    onClick={() => ButtonClick("another")}
-                    disabled={isAnotherOption}
-                    className={`relative inline-flex py-20 flex justify-center p-6 text-lg hover:bg-[#4bd0d5] border border-slate-50 shadow-md hover:border-0 hover:text-white duration-75 border-doh-blue rounded-xl 
-                    ${
-                      isAnotherOption
-                        ? "bg-[#4bd0d5] text-white"
-                        : "bg-gray-300"
-                    }`}
+                    id="boxTopic"
+                    onClick={(btn) => ButtonClick(btn, "another", "btnThree")}
+                    className={`flex-col gap-3 items-center btnThree relative w-full text-black  py-20 flex justify-center p-6 text-lg hover:bg-[#4bd0d5] border border-slate-50 shadow-md hover:border-0 hover:text-white duration-75  rounded-xl `}
+                    value={"อื่นๆ"}
                   >
                     <AiOutlineBars className="object-cover h-10 w-10" />
+                    <div>อื่นๆ</div>
                   </button>
                 </div>
               </div>
@@ -248,22 +219,6 @@ function Question() {
                 />
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-1 sm:gap-5 mb-2">
-                <div className="flex-1">
-                  <label>หัวข้อ</label>
-                  <select
-                    ref={select}
-                    className="w-full p-2 my-2 rounded-lg border-[#4bd0d5]"
-                  >
-                    <option value="การบริการของเจ้าหน้าที่">
-                      การบริการของเจ้าหน้าที่
-                    </option>
-                    <option value="การใช้งานระบบ">การใช้งานระบบ</option>
-                    <option value="อื่นๆ">อื่นๆ</option>
-                  </select>
-                </div>
-              </div>
-
               <label htmlFor="">ข้อเสนอแนะ</label>
               <textarea
                 placeholder="ข้อความ"
@@ -291,7 +246,7 @@ function Question() {
               <div className="w-1/2 h-12 rounded-r-lg flex justify-end">
                 <button
                   type="submit"
-                  className="bg-doh-dark-2 rounded-lg dark:bg-doh-green border border-[#4bd0d5] hover:bg-[#4bd0d5] hover:border-0 hover:text-white duration-75 border-doh-blue px-[40px] py-[10px] h-[44px] text-center text-[24px] flex items-center justify-center"
+                  className="bg-doh-dark-2 rounded-lg dark:bg-doh-green border  hover:bg-[#4bd0d5] hover:border-0 hover:text-white duration-75 border-doh-blue px-[40px] py-[10px] h-[44px] text-center text-[24px] flex items-center justify-center"
                 >
                   บันทึก
                 </button>
