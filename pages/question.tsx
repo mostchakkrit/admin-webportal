@@ -12,6 +12,17 @@ import { IoIosArrowDropright } from "react-icons/io";
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH;
 
 function Question() {
+  const [selectedOption, setSelectedOption] = useState();
+
+  const ButtonClick = (option: any) => {
+    setSelectedOption(option);
+    choiceTitle(option);
+    console.log(option);
+  };
+  const isStaffOption = selectedOption === "staff";
+  const isUSystemOption = selectedOption === "uSystem";
+  const isAnotherOption = selectedOption === "another";
+
   const [post, setPost]: any = useState();
   const [loading, setLoading] = useState(true);
   let textArea: any = useRef();
@@ -37,32 +48,22 @@ function Question() {
         setLoading(false);
       });
   }, []);
-  const Unknown = () => {
+  const choiceTitle = (e: any) => {
     if (staff.current.checked === true) {
-      firstname.current.value = "-";
-      lastname.current.value = "-";
-      firstname.current.setAttribute("disabled", "");
-      lastname.current.setAttribute("disabled", "");
-    } else if (uSystem.current.checked == true) {
-      staff.current.value == "-";
-      another.current.value = "-";
-      staff.current.setAttribute("disabled", "");
-      another.current.setAttribute("disabled", "");
-    } else if (another.current.checked == true) {
-      staff.current.value == "-";
-      uSystem.current.value == "-";
-      staff.current.setAttribute("disabled", "");
-      uSystem.current.setAttribute("disabled", "");
-    } else {
-      staff.current.removeAttribute("disabled", "");
-      uSystem.current.removeAttribute("disabled", "");
-      another.current.removeAttribute("disabled", "");
+      uSystem.current.setAttribute("disabled", "disabled");
+      another.current.setAttribute("disabled", "disabled");
+    } else if (uSystem.current === true) {
+      staff.current.setAttribute("disabled", "disabled");
+      another.current.setAttribute("disabled", "disabled");
+    } else if (another.current === true) {
+      staff.current.setAttribute("disabled", "disabled");
+      uSystem.current.setAttribute("disabled", "disabled");
     }
   };
   const onUnknow = () => {
     if (radio.current.checked === true) {
-      firstname.current.value = "-";
-      lastname.current.value = "-";
+      firstname.current.value = "---";
+      lastname.current.value = "---";
       firstname.current.setAttribute("disabled", "");
       lastname.current.setAttribute("disabled", "");
     } else {
@@ -76,7 +77,7 @@ function Question() {
     const data = {
       firstname: firstname.current.value,
       lastname: lastname.current.value,
-      group: select.current.value,
+      /* group: select.current.value, */
       message: textArea.current.value,
     };
     axios
@@ -119,7 +120,7 @@ function Question() {
             <div className="grid grid-cols-1">
               {post?.data?.slice(0, 5).map((el: any, i: number) => (
                 <Link href={"/question-details"} key={el.id}>
-                  <div className="w-full p-2 my-2 hover:bg-[#4bd0d5] border-1 hover:border-0 hover:text-white hover:scale-105 hover:duration-200 border-doh-blue shadow-md rounded-md">
+                  <div className="w-full p-3 my-2 hover:bg-[#4bd0d5] border-1 hover:border-0 hover:text-white hover:scale-105 hover:duration-200 border-doh-blue shadow-md rounded-md">
                     <p className="cursor-pointer relative">
                       {i + 1} คำถาม : {el.question} ?{" "}
                       <IoIosArrowDropright className="inline-flex w-7 h-7 absolute right-5 " />
@@ -131,6 +132,40 @@ function Question() {
           </div>
         </div>
       </div>
+
+      {/* testtesttesttesttesttesttesttesttest */}
+      <div className="container mx-auto">
+        <div className="grid grid-cols-3 gap-6">
+          {/* <button
+            onClick={() => handleButtonClick("staff")}
+            disabled={isStaffOption}
+            className={`relative inline-flex py-20 flex justify-center p-6 text-lg hover:bg-[#4bd0d5] border border-slate-50 shadow-md hover:border-0 hover:text-white duration-75 border-doh-blue rounded-xl ${
+              isStaffOption ? "bg-[#4bd0d5] text-white" : "bg-gray-300"
+            }`}
+          >
+            <BsBuildingFillCheck className="object-cover h-10 w-10" />
+          </button>
+          <button
+            onClick={() => handleButtonClick("uSystem")}
+            disabled={isUSystemOption}
+            className={`relative inline-flex py-20 flex justify-center p-6 text-lg hover:bg-[#4bd0d5] border border-slate-50 shadow-md hover:border-0 hover:text-white duration-75 border-doh-blue rounded-xl ${
+              isUSystemOption ? "bg-[#4bd0d5] text-white" : "bg-gray-300"
+            }`}
+          >
+            <FaUserCog className="object-cover h-10 w-10" />
+          </button>
+          <button
+            onClick={() => handleButtonClick("another")}
+            disabled={isAnotherOption}
+            className={`relative inline-flex py-20 flex justify-center p-6 text-lg hover:bg-[#4bd0d5] border border-slate-50 shadow-md hover:border-0 hover:text-white duration-75 border-doh-blue rounded-xl ${
+              isAnotherOption ? "bg-[#4bd0d5] text-white" : "bg-gray-300"
+            }`}
+          >
+            <AiOutlineBars className="object-cover h-10 w-10" />
+          </button> */}
+        </div>
+      </div>
+      {/*  */}
 
       <form method="post" onSubmit={(f: any) => submit(f)}>
         <div className="w-full px-3 pb-[20px] grid grid-cols-12 gap-y-5">
@@ -145,23 +180,35 @@ function Question() {
               <div className="container mx-auto">
                 <div className="grid grid-cols-3 gap-6">
                   <button
-                    ref={staff}
-                    onClick={() => Unknown}
-                    className="relative inline-flex py-20 flex justify-center p-6 text-lg hover:bg-[#4bd0d5] border border-slate-50 shadow-md hover:border-0 hover:text-white duration-75 border-doh-blue rounded-xl"
+                    onClick={() => ButtonClick("staff")}
+                    disabled={isStaffOption}
+                    className={`relative inline-flex py-20 flex justify-center p-6 text-lg hover:bg-[#4bd0d5] border border-slate-50 shadow-md hover:border-0 hover:text-white duration-75 border-doh-blue rounded-xl ${
+                      isStaffOption ? "bg-[#4bd0d5] text-white" : "bg-gray-300"
+                    }`}
                   >
                     <BsBuildingFillCheck className="object-cover h-10 w-10" />
                   </button>
                   <button
-                    ref={uSystem}
-                    onClick={() => Unknown}
-                    className="relative inline-flex py-20 flex justify-center p-6 text-lg hover:bg-[#4bd0d5] border border-slate-50 shadow-md hover:border-0 hover:text-white duration-75 border-doh-blue rounded-xl"
+                    onClick={() => ButtonClick("uSystem")}
+                    disabled={isUSystemOption}
+                    className={`relative inline-flex py-20 flex justify-center p-6 text-lg hover:bg-[#4bd0d5] border border-slate-50 shadow-md hover:border-0 hover:text-white duration-75 border-doh-blue rounded-xl 
+                    ${
+                      isUSystemOption
+                        ? "bg-[#4bd0d5] text-white"
+                        : "bg-gray-300"
+                    }`}
                   >
                     <FaUserCog className="object-cover h-10 w-10" />
                   </button>
                   <button
-                    ref={another}
-                    onClick={() => Unknown}
-                    className="relative inline-flex py-20 flex justify-center p-6 text-lg hover:bg-[#4bd0d5] border border-slate-50 shadow-md hover:border-0 hover:text-white duration-75 border-doh-blue rounded-xl"
+                    onClick={() => ButtonClick("another")}
+                    disabled={isAnotherOption}
+                    className={`relative inline-flex py-20 flex justify-center p-6 text-lg hover:bg-[#4bd0d5] border border-slate-50 shadow-md hover:border-0 hover:text-white duration-75 border-doh-blue rounded-xl 
+                    ${
+                      isAnotherOption
+                        ? "bg-[#4bd0d5] text-white"
+                        : "bg-gray-300"
+                    }`}
                   >
                     <AiOutlineBars className="object-cover h-10 w-10" />
                   </button>
