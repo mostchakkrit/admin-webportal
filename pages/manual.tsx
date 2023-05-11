@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
+/* import { Carousel } from "react-responsive-carousel"; */
 import { dataSlide } from "@/public/data/dataSlide";
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH;
@@ -27,7 +27,7 @@ function Manual() {
   }
   return (
     <>
-      <Carousel width={"80%"} showThumbs={false} onChange={SlideChange}>
+{/*       <Carousel width={"80%"} showThumbs={false} onChange={SlideChange}>
         <div>
           <img
             src={BASE_PATH + "/images/manual/regisManual.jpg"}
@@ -62,7 +62,7 @@ function Manual() {
         </div>
       </Carousel>
 
-      <div className="Infomation" ref={info}></div>
+      <div className="Infomation" ref={info}></div> */}
     </>
   );
 }

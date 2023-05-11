@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import axios from "axios";
 
-function questionDetails() {
+function QuestionDetails() {
   const [post, setPost]: any = useState();
   const [loading, setLoading] = useState(true);
 
@@ -49,4 +49,4 @@ function questionDetails() {
   );
 }
 
-export default questionDetails;
+export default QuestionDetails;
