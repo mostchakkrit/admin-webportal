@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import axios from "axios";
+import Image from "next/image";
 import Email from "next-auth/providers/email";
 import { Telex } from "next/font/google";
 import { BsBuildingFillCheck } from "react-icons/bs";
@@ -108,14 +109,17 @@ function Question() {
         <div className="gap-3 items-center mb-3 mt-3 col-span-4">
           <h1 className="text-2xl font-bold">คำถามที่พบบ่อย (FAQ)</h1>
         </div>
-        <div className="flex gap-9">
-          <div className="w-1/3 py-4">
-            <img
+        <div className="md:flex sm:block gap-9 items-center">
+          <div className="w-1/3 sm:block  xs:hidden  py-4">
+            <Image
               className="rounded-lg"
               src={BASE_PATH + "/images/question/quest.png"}
-            ></img>
+              alt="question"
+              width={400}
+              height={400}
+            ></Image>
           </div>
-          <div className="w-2/4">
+          <div className="md:w-2/4 sm:w-full">
             <div className="flex w-full justify-end text-white ">
               <Link href={"/question-details"}>
                 <button className="flex bg-gra-s py-2 px-3 rounded-lg hover:bg-gra-e hover:scale-105 cursor-pointer">
@@ -151,12 +155,12 @@ function Question() {
           <div className="col-span-12 xl:col-end-11 xl:col-start-1">
             <div className="w-full">
               <div className="container mx-auto">
-                <div className="grid grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-3 xs:grid-cols-1 w-full  gap-6">
                   <button
                     type="button"
                     id="boxTopic"
                     onClick={(btn) => ButtonClick(btn, "staff", "btnFirst")}
-                    className={`flex-col gap-3 items-center btnFirst relative min-w-full min-h-full text-black  py-20 flex justify-center p-6 text-lg hover:bg-[#4bd0d5] border border-slate-50 shadow-md hover:border-0 hover:text-white duration-75 rounded-xl `}
+                    className={` flex-col gap-3 items-center btnFirst relative min-w-full min-h-full text-black xs:py-5 sm:py-20 flex justify-center p-6 text-lg hover:bg-[#4bd0d5] border border-slate-50 shadow-md hover:border-0 hover:text-white duration-75 rounded-xl `}
                     value={"การบริการของเจ้าหน้าที่"}
                   >
                     <BsBuildingFillCheck className="object-cover h-10 w-10" />
@@ -167,7 +171,7 @@ function Question() {
                     id="boxTopic"
                     onClick={(btn) => ButtonClick(btn, "uSystem", "btnTwo")}
                     type="button"
-                    className={`flex-col gap-3 items-center btnTwo relative w-full text-black  py-20 flex justify-center p-6 text-lg hover:bg-[#4bd0d5] border border-slate-50 shadow-md hover:border-0 hover:text-white duration-75 rounded-xl `}
+                    className={`flex-col gap-3 items-center btnTwo relative w-full text-black  xs:py-5 sm:py-20 flex justify-center p-6 text-lg hover:bg-[#4bd0d5] border border-slate-50 shadow-md hover:border-0 hover:text-white duration-75 rounded-xl `}
                     value={"การใช้งานระบบ"}
                   >
                     <FaUserCog className="object-cover h-10 w-10" />
@@ -177,7 +181,7 @@ function Question() {
                   <button
                     id="boxTopic"
                     onClick={(btn) => ButtonClick(btn, "another", "btnThree")}
-                    className={`flex-col gap-3 items-center btnThree relative w-full text-black  py-20 flex justify-center p-6 text-lg hover:bg-[#4bd0d5] border border-slate-50 shadow-md hover:border-0 hover:text-white duration-75  rounded-xl `}
+                    className={`flex-col gap-3 items-center btnThree relative w-full text-black  xs:py-5 sm:py-20 flex justify-center p-6 text-lg hover:bg-[#4bd0d5] border border-slate-50 shadow-md hover:border-0 hover:text-white duration-75  rounded-xl `}
                     value={"อื่นๆ"}
                   >
                     <AiOutlineBars className="object-cover h-10 w-10" />
